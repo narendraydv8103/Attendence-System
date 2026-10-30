@@ -7,6 +7,7 @@ dist/
 dist-ssr/
 build/
 */dist/
+backend/public/
 
 # Environment variables
 .env

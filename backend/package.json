@@ -1,12 +1,11 @@
 {
-  "name": "backend",
+  "name": "attendance-portal",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "SmartQR Attendance System Web Application",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js"
   },
   "keywords": [],
   "author": "",
