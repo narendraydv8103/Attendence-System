@@ -2,10 +2,14 @@
   "name": "attendance-system",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
+    "build": "npm run build --workspace=frontend",
+    "start": "node backend/server.js",
     "dev:backend": "node backend/server.js",
-    "dev:frontend": "npm --prefix frontend run dev",
-    "dev": "npm --prefix frontend run dev",
-    "start": "node backend/server.js"
+    "dev:frontend": "npm run dev --workspace=frontend"
   }
 }
