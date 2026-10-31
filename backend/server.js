@@ -5,6 +5,7 @@ const fs = require('fs');
 const socketIo = require('socket.io');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 const { initSocket } = require('./socket/socketHandler');
 const { protect, authorize } = require('./middlewares/authMiddleware');
@@ -44,7 +45,11 @@ initSocket(io);
 
 // Connect to Database & Seed Sample Data if empty
 connectDB().then(async () => {
-  await seedInitialData();
+  if (mongoose.connection.readyState === 1) {
+    await seedInitialData();
+  }
+}).catch((err) => {
+  console.error('Database connection/seeding error:', err.message);
 });
 
 // Seed Initial Demo Data

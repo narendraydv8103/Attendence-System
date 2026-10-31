@@ -27,7 +27,7 @@ const connectDB = async () => {
       console.log(`MongoDB Connected (Memory Fallback): ${conn.connection.host}`);
     } catch (memError) {
       console.error(`Memory DB Failed: ${memError.message}`);
-      process.exit(1);
+      console.warn('Continuing server startup without database. Set MONGODB_URI to connect to MongoDB.');
     }
   }
 };
